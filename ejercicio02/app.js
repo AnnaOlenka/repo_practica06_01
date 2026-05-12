@@ -139,3 +139,9 @@ document.getElementById("copyTextBtn").addEventListener("click", () => {
   navigator.clipboard.writeText(text);
   alert("Texto copiado");
 });
+
+// ================= VOLVER A SORTEAR =================
+document.getElementById("rerollBtn").addEventListener("click", () => {
+  screenConfig.classList.remove("hidden");
+  screenResult.classList.add("hidden");
+});
