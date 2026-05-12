@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="es">
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>Sorteo de Equipos</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+
+        <!-- PANTALLA 1 -->
+        <div id="screen-config" class="screen active">
+
+            <h1 class="title">Sorteo de Equipos</h1>
+
+            <textarea id="participantsInput" class="textarea"
+                placeholder="Ingresa participantes (uno por línea, máximo 100)"></textarea>
+
+            <div class="row">
+                <label>Título equipos:</label>
+                <input type="text" id="teamTitle" class="input" placeholder="Ej: Equipos de trabajo">
+            </div>
+
+            <div class="row">
+                <label>Modo de sorteo:</label>
+                <select id="modeSelect" class="select">
+                    <option value="teams">Cantidad de equipos</option>
+                    <option value="members">Participantes por equipo</option>
+                </select>
+            </div>
+
+            <div class="row">
+                <input type="number" id="quantityInput" class="input" placeholder="Cantidad">
+            </div>
+
+            <button id="generateBtn" class="btn">Generar</button>
+
+        </div>
+
+        <!-- PANTALLA 2 -->
+        <div id="screen-result" class="screen hidden">
+
+            <h2 id="resultTitle" class="title"></h2>
+
+            <div id="teamsContainer" class="teams-container"></div>
+
+            <div class="actions">
+                <button id="downloadBtn" class="btn">Descargar JPG</button>
+                <button id="copyImgBtn" class="btn">Copiar Imagen</button>
+                <button id="copyTextBtn" class="btn">Copiar Equipos</button>
+            </div>
+
+        </div>
+
+        <!-- LIBRERÍA PARA JPG -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+        <script src="app.js"></script>
+    </body>
+
+    </html>
+
+</body>
+
+</html>
