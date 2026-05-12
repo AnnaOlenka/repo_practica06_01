@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎲 Sorteo de Equipos - Premium</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- PANTALLA 1: CONFIGURACIÓN -->
+    <div id="screen-config" class="screen active">
+        <h1 class="title">Sorteo de Equipos</h1>
+        
+        <form>
+            <div class="form-section">
+                <label class="form-label">Participantes</label>
+                <textarea 
+                    id="participantsInput" 
+                    class="textarea"
+                    placeholder="Ingresa participantes (uno por línea, máximo 100)"></textarea>
+            </div>
+
+            <div class="row">
+                <label class="form-label">Título de los equipos</label>
+                <input 
+                    type="text" 
+                    id="teamTitle" 
+                    class="input" 
+                    placeholder="Ej: Equipos de trabajo">
+            </div>
+
+            <div class="row">
+                <label class="form-label">Modo de sorteo</label>
+                <select id="modeSelect" class="select">
+                    <option value="teams">Cantidad de equipos</option>
+                    <option value="members">Participantes por equipo</option>
+                </select>
+            </div>
+
+            <div class="row">
+                <label class="form-label">Cantidad</label>
+                <input 
+                    type="number" 
+                    id="quantityInput" 
+                    class="input" 
+                    placeholder="Ingresa la cantidad"
+                    min="1">
+            </div>
+
+            <button type="button" id="generateBtn" class="btn btn-primary">
+                Generar Sorteo
+            </button>
+        </form>
+    </div>
+
+    <!-- PANTALLA 2: RESULTADOS -->
+    <div id="screen-result" class="screen hidden">
+        <h2 id="resultTitle" class="title"></h2>
+
+        <div id="teamsContainer" class="teams-container"></div>
+
+        <div class="actions">
+            <button id="downloadBtn" class="btn btn-secondary">Descargar JPG</button>
+            <button id="copyImgBtn" class="btn btn-secondary">Copiar Imagen</button>
+            <button id="copyTextBtn" class="btn btn-secondary">Copiar Texto</button>
+            <button id="rerollBtn" class="btn btn-primary">Nuevo Sorteo</button>
+        </div>
+    </div>
+
+    <!-- LIBRERÍA PARA JPG -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
