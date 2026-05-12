@@ -230,6 +230,7 @@
       <span><span class="tecla">SPACE</span> Gíralo</span>
       <span><span class="tecla">S</span> Ocultar el elemento seleccionado</span>
       <span><span class="tecla">R</span> Reiniciar</span>
+      <span><span class="tecla">F</span> Pantalla completa</span>
       <span><span class="tecla">E</span> Editar</span>
     </div>
   </div>
@@ -510,6 +511,15 @@
   }
 
   // ─── Eventos de teclado ───────────────────────────────────────
+  function alternarPantallaCompleta() {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(() => {});
+      return;
+    }
+
+    document.exitFullscreen().catch(() => {});
+  }
+
   document.addEventListener('keydown', (e) => {
     const tecla        = e.key.toUpperCase();
     const editorActivo = modoEdicion && document.activeElement === editorElem;
@@ -522,6 +532,16 @@
     if (tecla === 'S' && !editorActivo) {
       e.preventDefault();
       ocultarUltimoSorteado();
+      return;
+    }
+    if (tecla === 'R' && !editorActivo) {
+      e.preventDefault();
+      reiniciarRuleta();
+      return;
+    }
+    if (tecla === 'F' && !editorActivo) {
+      e.preventDefault();
+      alternarPantallaCompleta();
       return;
     }
     if (tecla === 'E' && !editorActivo) {
